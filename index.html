@@ -1,164 +1,194 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#090b0f" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070708">
   <title>SyncTime 共時｜找到一起出發的人</title>
-  <meta name="description" content="SyncTime 共時：探索旅程、找到合適旅伴、一起討論與完成旅行。" />
+  <meta name="description" content="SyncTime 共時，探索世界、找到合適旅伴、一起規劃與完成旅行。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="page-shell">
-    <header class="nav-wrap">
-      <a class="brand" href="#top" aria-label="SyncTime 首頁">
-        <img src="./logo.svg" alt="" />
-        <span>SyncTime 共時</span>
-      </a>
-      <nav>
-        <a href="#features">功能</a>
-        <a href="#community">旅吧</a>
-        <a href="#tools">旅行工具</a>
-      </nav>
-      <a class="nav-cta" href="https://github.com/xpyfx/SyncTime" target="_blank" rel="noreferrer">查看專案 <span>↗</span></a>
-    </header>
+  <header class="site-nav">
+    <a class="brand" href="#top">
+      <img src="./logo.svg" alt="SyncTime">
+      <span>SyncTime</span>
+    </a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#community">Community</a>
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="nav-button" href="https://github.com/xpyfx/SyncTime" target="_blank" rel="noreferrer">View project ↗</a>
+  </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="orb orb-blue"></div>
-        <div class="orb orb-violet"></div>
-        <p class="eyebrow reveal">TRAVEL BETTER, TOGETHER</p>
-        <h1 class="reveal delay-1">旅程不只去遠方，<br><span>也找到一起出發的人。</span></h1>
-        <p class="hero-copy reveal delay-2">SyncTime 共時，讓你探索旅程、找到合適旅伴、一起討論與完成旅行。</p>
-        <div class="hero-actions reveal delay-3">
-          <a class="btn primary" href="https://github.com/xpyfx/SyncTime" target="_blank" rel="noreferrer">開始探索 <span>→</span></a>
-          <a class="btn ghost" href="#features">看看能做什麼</a>
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-glow"></div>
+      <div class="hero-word" aria-hidden="true">SyncTime</div>
+
+      <div class="hero-copy reveal">
+        <p class="mini-label">A TRAVEL COMPANION APP</p>
+        <h1>共時，<br>讓旅程找到<br>對的人。</h1>
+        <p class="hero-description">探索世界，找尋最合適的旅伴。從找旅程、加入同行，到聊天室共同決定下一站，旅行不必再一個人完成。</p>
+
+        <div class="store-row">
+          <a class="store-button" href="https://github.com/xpyfx/SyncTime" target="_blank" rel="noreferrer">
+            <span class="store-icon">↗</span><span><small>EXPLORE</small><b>SyncTime Project</b></span>
+          </a>
+          <a class="store-button ghost-store" href="#features">
+            <span class="store-icon">✦</span><span><small>DISCOVER</small><b>See Features</b></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-phone-wrap reveal delay-2">
+        <div class="hero-card behind-card">
+          <span>New trips<br>are here.</span>
+          <div class="float-avatar a1"></div>
+          <div class="float-avatar a2"></div>
+          <div class="float-avatar a3"></div>
         </div>
 
-        <div class="device-stage reveal delay-3">
-          <article class="phone phone-left">
-            <div class="notch"></div>
-            <div class="phone-ui">
-              <div class="phone-head">
-                <img src="./logo.svg" alt="">
-                <strong>旅吧</strong><i></i>
-              </div>
-              <div class="seg"><span class="on">熱門</span><span>推薦</span><span>好友</span></div>
-              <div class="post-card">
-                <div class="avatar purple"></div>
-                <p>第一次去京都，有推薦的秋季散步路線嗎？</p>
+        <div class="phone-shell hero-phone">
+          <div class="dynamic-island"></div>
+          <div class="phone-screen">
+            <div class="app-top"><img src="./logo.svg" alt=""><span>SyncTime</span><b>•••</b></div>
+            <div class="app-title">下一段旅程<br><strong>與誰共時？</strong></div>
+            <div class="search-box">搜尋國家、城市或旅伴</div>
+            <article class="app-trip">
+              <div class="trip-photo japan"></div>
+              <div class="trip-meta"><span>JAPAN · TOKYO</span><h3>東京秋日散策</h3><p>10/18 — 10/22 · 徵人中</p></div>
+            </article>
+            <article class="app-trip compact">
+              <div class="trip-photo paris"></div>
+              <div class="trip-meta"><span>FRANCE · PARIS</span><h3>巴黎週末</h3><p>11/06 — 11/10 · 3 位旅伴</p></div>
+            </article>
+            <div class="app-tabs"><span>⌂</span><span>◎</span><span class="add">＋</span><span>◌</span><span>●</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-cue">SCROLL <span>↓</span></div>
+    </section>
+
+    <section class="intro-strip">
+      <p>不只是找旅伴。</p>
+      <p>把一段旅行從「想去」變成「一起出發」。</p>
+    </section>
+
+    <section class="statement section-pad reveal-on-scroll">
+      <p class="mini-label">MEET SYNCTIME</p>
+      <h2>旅行的每個決定，<br>都可以更自然地一起完成。</h2>
+      <p class="statement-copy">SyncTime 把找旅伴、行程交流、地點分享、群組決策與旅行社群放在同一個地方，讓旅行前的陌生感，在出發之前就慢慢消失。</p>
+    </section>
+
+    <section class="feature-stage" id="features">
+      <div class="feature-panel feature-red reveal-on-scroll">
+        <div class="panel-copy">
+          <p class="mini-label">01 · FIND YOUR PEOPLE</p>
+          <h2>找到<br>真正合拍的旅伴。</h2>
+          <p>依目的地、日期、預算與旅遊偏好探索旅程，篩選真正適合同行的人。</p>
+          <a href="https://github.com/xpyfx/SyncTime" target="_blank" rel="noreferrer">Explore SyncTime →</a>
+        </div>
+        <div class="panel-visual">
+          <div class="big-type">MATCH</div>
+          <div class="phone-shell panel-phone">
+            <div class="dynamic-island"></div>
+            <div class="phone-screen light">
+              <div class="app-top dark"><img src="./logo.svg" alt=""><span>探索旅程</span><b>⋯</b></div>
+              <div class="filter-row"><span>亞洲</span><span>10 月</span><span>預算</span></div>
+              <article class="profile-card"><div class="trip-photo seoul"></div><h3>首爾咖啡巡禮</h3><p>2 位旅伴 · 還差 1 人</p></article>
+              <article class="profile-card"><div class="trip-photo island"></div><h3>沖繩自駕</h3><p>3 位旅伴 · 徵人中</p></article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-panel feature-purple reveal-on-scroll" id="community">
+        <div class="panel-visual left-visual">
+          <div class="big-type">SHARE</div>
+          <div class="phone-shell panel-phone tilt-left">
+            <div class="dynamic-island"></div>
+            <div class="phone-screen light">
+              <div class="app-top dark"><img src="./logo.svg" alt=""><span>旅吧</span><b>＋</b></div>
+              <div class="feed-tabs"><span class="active">熱門</span><span>推薦</span><span>好友</span></div>
+              <article class="social-post">
+                <div class="post-user"><div class="avatar pink"></div><b>@mio.travel</b></div>
+                <p>第一次自己去京都，有沒有推薦的秋季散步路線？</p>
                 <small>#京都 #秋天 #慢旅行</small>
-              </div>
-              <div class="post-card">
-                <div class="avatar orange"></div>
-                <p>剛從葡萄牙回來，里斯本真的很適合慢旅行。</p>
+              </article>
+              <article class="social-post">
+                <div class="post-user"><div class="avatar blue"></div><b>@leonaway</b></div>
+                <p>里斯本真的太適合慢旅行了，分享三家很喜歡的小店。</p>
                 <small>#葡萄牙 #旅行分享</small>
-              </div>
-              <div class="mobile-nav">⌂　◎　＋　◌　◉</div>
+              </article>
             </div>
-          </article>
-
-          <article class="phone phone-center">
-            <div class="notch"></div>
-            <div class="phone-ui">
-              <div class="phone-head">
-                <img src="./logo.svg" alt="">
-                <strong>SyncTime</strong><i></i>
-              </div>
-              <div class="search-pill">搜尋目的地、城市或旅伴</div>
-              <div class="trip-card">
-                <div class="trip-cover cover-1"></div>
-                <div><strong>東京・秋日散策</strong><small>10/18 – 10/22 · 徵人中</small></div>
-              </div>
-              <div class="trip-card">
-                <div class="trip-cover cover-2"></div>
-                <div><strong>巴黎週末</strong><small>11/06 – 11/10 · 3 位旅伴</small></div>
-              </div>
-              <div class="mobile-nav">⌂　◎　＋　◌　◉</div>
-            </div>
-          </article>
-
-          <article class="phone phone-right">
-            <div class="notch"></div>
-            <div class="phone-ui chat-ui">
-              <div class="phone-head">
-                <span>‹</span><strong>大阪四日小旅行</strong><i></i>
-              </div>
-              <div class="bubble left">明天要不要先去黑門市場？</div>
-              <div class="bubble right">好！我把地點丟到群組 👌</div>
-              <div class="map-chip">⌖ 黑門市場</div>
-              <div class="bubble left">晚餐要吃燒肉還是串炸？</div>
-              <div class="poll-chip">◉ 建立投票</div>
-              <div class="mobile-nav">⌂　◎　＋　◌　◉</div>
-            </div>
-          </article>
+          </div>
         </div>
-      </section>
-
-      <section class="trust-strip">
-        <span>為一起旅行而設計</span>
-        <div><b>◎</b> 找旅程</div>
-        <div><b>◌</b> 找旅伴</div>
-        <div><b>✦</b> 即時討論</div>
-        <div><b>♡</b> 分享旅行</div>
-      </section>
-
-      <section class="section" id="features">
-        <div class="section-head">
-          <p class="eyebrow">ALL IN ONE PLACE</p>
-          <h2>旅行前、中、後，<br>都在同一個地方。</h2>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card reveal-on-scroll"><span class="icon">◎</span><h3>找到合拍旅伴</h3><p>依目的地、日期、預算與偏好探索旅程，快速找到真正適合同行的人。</p></article>
-          <article class="feature-card reveal-on-scroll"><span class="icon">◌</span><h3>旅程即時聊天室</h3><p>把行程、地點與決策集中在同一個地方，不再讓資訊散落在不同群組。</p></article>
-          <article class="feature-card reveal-on-scroll"><span class="icon">✦</span><h3>旅吧交流</h3><p>分享旅行靈感、即時情報與心得，從其他旅人身上發現下一段旅程。</p></article>
-          <article class="feature-card reveal-on-scroll"><span class="icon">⌁</span><h3>AI 旅行助手</h3><p>遇到功能或規劃問題時，隨時取得清楚、即時的協助。</p></article>
-        </div>
-      </section>
-
-      <section class="showcase blue-card reveal-on-scroll">
-        <div class="showcase-copy">
-          <p class="eyebrow">PLAN TOGETHER</p>
-          <h2>從「想去」到<br>「一起出發」。</h2>
-          <p>建立旅程、設定地點與日期，再讓真正有興趣的旅伴加入。旅行規劃不必從零開始。</p>
-          <div class="tags"><span>✈ 發起旅程</span><span>◌ 招募旅伴</span><span>◈ 隱私控制</span></div>
-        </div>
-        <div class="visual-phone"><div class="mini-glow"></div><div class="phone demo-phone"><div class="notch"></div><div class="phone-ui"><div class="phone-head"><img src="./logo.svg" alt=""><strong>SyncTime</strong><i></i></div><div class="search-pill">搜尋目的地、城市或旅伴</div><div class="trip-card"><div class="trip-cover cover-1"></div><div><strong>東京・秋日散策</strong><small>10/18 – 10/22 · 徵人中</small></div></div><div class="trip-card"><div class="trip-cover cover-3"></div><div><strong>冰島自駕</strong><small>12/02 – 12/09 · 2 位旅伴</small></div></div><div class="mobile-nav">⌂　◎　＋　◌　◉</div></div></div></div>
-      </section>
-
-      <section class="showcase violet-card reveal-on-scroll" id="community">
-        <div class="visual-phone"><div class="mini-glow violet"></div><div class="phone demo-phone tilt"><div class="notch"></div><div class="phone-ui"><div class="phone-head"><img src="./logo.svg" alt=""><strong>旅吧</strong><i></i></div><div class="seg"><span class="on">熱門</span><span>推薦</span><span>好友</span></div><div class="post-card"><div class="avatar purple"></div><p>東京賞楓季有人也是一個人出發嗎？</p><small>#東京 #賞楓 #找旅伴</small></div><div class="post-card"><div class="avatar orange"></div><p>分享一間在巴塞隆納意外找到的小店。</p><small>#西班牙 #美食</small></div><div class="mobile-nav">⌂　◎　＋　◌　◉</div></div></div></div>
-        <div class="showcase-copy">
-          <p class="eyebrow">TRAVEL BAR</p>
+        <div class="panel-copy">
+          <p class="mini-label">02 · TRAVEL BAR</p>
           <h2>旅人之間，<br>不只交換攻略。</h2>
-          <p>在旅吧分享即時情報、旅行心得與問題；透過熱門、推薦與好友動態，遇見更多同頻的人。</p>
+          <p>分享旅行靈感、即時情報與問題，從熱門、推薦與好友動態裡遇見更多同頻的人。</p>
         </div>
-      </section>
+      </div>
 
-      <section class="tool-grid" id="tools">
-        <article class="tool-card reveal-on-scroll"><span class="icon">◫</span><h3>旅行分帳</h3><p>集中記錄旅途費用與智慧結算，少一點算帳，多一點旅行。</p></article>
-        <article class="tool-card reveal-on-scroll"><span class="icon">◉</span><h3>投票與抽籤</h3><p>餐廳、行程、分工都能快速決定，讓群組討論真的有結果。</p></article>
-        <article class="tool-card reveal-on-scroll"><span class="icon">⌖</span><h3>地點分享</h3><p>把 Google Maps 地點帶進聊天室，集合與導航更直接。</p></article>
-      </section>
+      <div class="feature-panel feature-orange reveal-on-scroll">
+        <div class="panel-copy">
+          <p class="mini-label">03 · PLAN TOGETHER</p>
+          <h2>聊完之後，<br>真的做出決定。</h2>
+          <p>聊天室直接分享地點、發起投票與抽籤，把討論變成下一個行動。</p>
+        </div>
+        <div class="panel-visual">
+          <div class="big-type">PLAN</div>
+          <div class="phone-shell panel-phone">
+            <div class="dynamic-island"></div>
+            <div class="phone-screen light chat-screen">
+              <div class="app-top dark"><span>‹</span><span>大阪四日小旅行</span><b>•••</b></div>
+              <div class="chat-bubble them">明天先去黑門市場嗎？</div>
+              <div class="chat-bubble me">可以！我把地點丟進來 👌</div>
+              <div class="location-chip">⌖ 黑門市場 · Osaka</div>
+              <div class="chat-bubble them">晚餐要燒肉還是串炸？</div>
+              <div class="poll-card"><b>今晚吃什麼？</b><span>燒肉 62%</span><span>串炸 38%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section class="final-cta reveal-on-scroll">
-        <div class="final-glow"></div>
-        <img src="./logo.svg" alt="" />
-        <h2>下一段旅程，<br>與君共時。</h2>
-        <p>探索世界，找尋最合適的旅伴。</p>
-        <a class="btn primary" href="https://github.com/xpyfx/SyncTime" target="_blank" rel="noreferrer">查看 SyncTime 專案 <span>→</span></a>
-      </section>
-    </main>
+    <section class="tool-section section-pad" id="tools">
+      <div class="tool-heading reveal-on-scroll">
+        <p class="mini-label">MORE THAN CHAT</p>
+        <h2>旅途中需要的，<br>都放進同一個 App。</h2>
+      </div>
+      <div class="tool-grid">
+        <article class="tool-card reveal-on-scroll"><span>⌖</span><h3>Google Maps 地點</h3><p>聊天室直接分享地標、定位與導航。</p></article>
+        <article class="tool-card reveal-on-scroll"><span>◫</span><h3>旅行分帳</h3><p>共同記錄支出，快速整理與結算。</p></article>
+        <article class="tool-card reveal-on-scroll"><span>◉</span><h3>投票與抽籤</h3><p>選餐廳、排行程、分工作都能快速完成。</p></article>
+        <article class="tool-card reveal-on-scroll"><span>✦</span><h3>AI 旅行助手</h3><p>隨時取得功能與旅行規劃上的即時協助。</p></article>
+      </div>
+    </section>
 
-    <footer>
-      <a class="brand" href="#top"><img src="./logo.svg" alt=""><span>SyncTime 共時</span></a>
-      <p>115 資訊傳播學系畢業專題 · SyncTime</p>
-      <a href="https://github.com/xpyfx/SyncTime" target="_blank" rel="noreferrer">GitHub ↗</a>
-    </footer>
-  </div>
+    <section class="final-section" id="about">
+      <div class="final-glow"></div>
+      <p class="mini-label reveal-on-scroll">SYNC YOUR TIME</p>
+      <h2 class="reveal-on-scroll">下一段旅程，<br><span>與君共時。</span></h2>
+      <p class="reveal-on-scroll">探索世界，找尋最合適的旅伴，精彩生活，與君共時。</p>
+      <a class="final-button reveal-on-scroll" href="https://github.com/xpyfx/SyncTime" target="_blank" rel="noreferrer">View SyncTime on GitHub ↗</a>
+      <div class="final-word" aria-hidden="true">SyncTime</div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top"><img src="./logo.svg" alt=""><span>SyncTime</span></a>
+    <span>115 資訊傳播學系畢業專題</span>
+    <a href="https://github.com/xpyfx/SyncTime" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </footer>
+
   <script src="./script.js"></script>
 </body>
 </html>
