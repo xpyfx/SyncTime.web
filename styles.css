@@ -2498,3 +2498,20 @@ body > footer > a:last-child {
   .ui-photo-trip { height: 170px; }
   .ui-share-card { height: 220px; }
 }
+
+/* Actual app captures for the six supplied scene pairs. The image is clipped
+   inside the existing phone; its extra height keeps Safari's bottom bar out. */
+.app-screen.capture-screen {
+  padding: 0;
+  background: #f7fbfe;
+}
+.capture-screen img {
+  display: block;
+  width: 100%;
+  height: 107.5%;
+  object-fit: fill;
+}
+.capture-screen.capture-expanded img { height: 119.5%; }
+body:is([data-screen="match"], [data-screen="plan"], [data-screen="bar"], [data-screen="room"], [data-screen="export"], [data-screen="expenses"]) .journey-phone :is(.phone-status, .phone-nav, .phone-homebar) {
+  opacity: 0;
+}
