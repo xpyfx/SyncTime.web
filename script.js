@@ -5,6 +5,8 @@
   const journeySteps = document.querySelectorAll(".journey-step");
   const phoneScreens = document.querySelectorAll("[data-phone-screen]");
   const journeyPhone = document.querySelector(".journey-phone");
+  const heroPhone = document.querySelector(".hero-phone");
+  const featureSection = document.querySelector(".phone-journey");
   const navLinks = document.querySelectorAll(".nav-glass a");
   const trackedSections = [...navLinks]
     .map((link) => document.querySelector(link.getAttribute("href")))
@@ -61,9 +63,44 @@
     let activeScreen = "";
     const clamp = (value) => Math.max(0, Math.min(1, value));
     const smoothstep = (value) => value * value * (3 - 2 * value);
+    const bridgePhone = heroPhone && featureSection && journeyPhone
+      ? heroPhone.cloneNode(true) : null;
+    if (bridgePhone) {
+      bridgePhone.classList.add("bridge-phone");
+      bridgePhone.setAttribute("aria-hidden", "true");
+      bridgePhone.querySelectorAll("a").forEach((link) => {
+        link.tabIndex = -1;
+      });
+      document.body.appendChild(bridgePhone);
+      document.body.classList.add("has-phone-bridge");
+    }
+
+    const renderBridge = () => {
+      if (!bridgePhone) return;
+      const scroll = window.scrollY;
+      const heroRect = heroPhone.getBoundingClientRect();
+      const featureTop = featureSection.getBoundingClientRect().top;
+      const width = heroPhone.offsetWidth;
+      const height = heroPhone.offsetHeight;
+      const targetWidth = journeyPhone.offsetWidth;
+      const targetHeight = journeyPhone.offsetHeight;
+      const travel = smoothstep(clamp(scroll / Math.max(1, featureSection.offsetTop - window.innerHeight * 0.9)));
+      const handoff = smoothstep(clamp((window.innerHeight * 0.2 - featureTop) / (window.innerHeight * 0.42)));
+      const showing = scroll > 20 && handoff < 1;
+
+      heroPhone.classList.toggle("is-bridged", showing);
+      bridgePhone.style.visibility = showing ? "visible" : "hidden";
+      bridgePhone.style.opacity = String(1 - handoff);
+      bridgePhone.style.width = `${width + (targetWidth - width) * travel}px`;
+      bridgePhone.style.height = `${height + (targetHeight - height) * travel}px`;
+      bridgePhone.style.left = `${heroRect.left + ((window.innerWidth - targetWidth) / 2 - heroRect.left) * travel}px`;
+      bridgePhone.style.top = `${heroRect.top + ((window.innerHeight - targetHeight) / 2 - heroRect.top) * travel}px`;
+      journeyPhone.style.setProperty("--journey-opacity", handoff.toFixed(3));
+    };
 
     const renderJourney = () => {
       frame = 0;
+      renderBridge();
       const viewportCenter = window.scrollY + window.innerHeight * 0.5;
       const centers = [...journeySteps].map((step) => {
         const rect = step.getBoundingClientRect();

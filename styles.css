@@ -392,6 +392,22 @@ img {
   transform: translateX(-50%) rotateX(2deg);
 }
 
+.hero-phone.is-bridged {
+  opacity: 0;
+}
+
+.bridge-phone {
+  position: fixed;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  margin: 0;
+  pointer-events: none;
+  transform: none;
+  visibility: hidden;
+  will-change: top, left, width, height, opacity;
+}
+
 .hero-screen-photo {
   position: absolute;
   inset: 0;
@@ -640,8 +656,9 @@ body[data-screen="trace"] .sticky-stage::before {
 .journey-phone {
   width: 314px;
   height: 664px;
+  opacity: var(--journey-opacity, 1);
   transform: translateY(var(--journey-lift, 0px)) scale(var(--journey-scale, 1));
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
 .journey-phone .phone-bezel {
