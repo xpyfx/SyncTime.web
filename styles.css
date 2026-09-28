@@ -2388,16 +2388,16 @@ body > footer > a:last-child {
   align-items: baseline;
 }
 .hero-index .hero-index-main span { grid-row: auto; }
-.hero-index .hero-index-main strong { font-size: 14px; }
+.hero-index .hero-index-main strong { font-size: 15px; }
 .hero-index .hero-index-sub {
   display: block;
   margin: 5px 0 0 31px;
   padding: 0;
   border: 0;
   color: #b6cada;
-  font-size: 10px;
-  line-height: 1.3;
-  opacity: .74;
+  font-size: 12px;
+  line-height: 1.35;
+  opacity: .9;
 }
 .hero-index .hero-index-sub::before { content: "↳ "; opacity: .65; }
 .hero-index .hero-index-sub:hover { opacity: 1; }
