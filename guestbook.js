@@ -103,14 +103,18 @@ if (!guestbookConfig?.projectId || !guestbookConfig?.apiKey || !guestbookConfig?
     const feed = firestore.query(firestore.collection(db, "bubbles"), firestore.orderBy("createdAt", "desc"));
     firestore.onSnapshot(feed, (snapshot) => {
       renderRows(snapshot.docs.map((doc) => doc.data()).filter((post) => typeof post.message === "string"));
-    }, () => {
-      status.textContent = "目前無法載入公開留言，請稍後再試。";
+    }, (error) => {
+      status.textContent = error.code === "permission-denied"
+        ? "請先在 Firestore 發布網站的留言規則。"
+        : "目前無法載入公開留言，請稍後再試。";
     });
     submitMessage = async (text) => {
       await firestore.setDoc(ownPost, { message: text, createdAt: firestore.serverTimestamp() });
     };
   } catch (error) {
-    status.textContent = "留言服務目前無法連線，請稍後再試。";
+    status.textContent = ["auth/configuration-not-found", "auth/operation-not-allowed"].includes(error.code)
+      ? "請先在 Firebase Authentication 啟用匿名登入。"
+      : "留言服務目前無法連線，請稍後再試。";
     console.error("Guestbook connection error:", error);
   }
 }
