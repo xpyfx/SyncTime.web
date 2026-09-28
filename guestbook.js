@@ -1,4 +1,4 @@
-import { guestbookConfig } from "./guestbook-config.js";
+import { guestbookConfig } from "./guestbook-config.js?v=2";
 
 const examples = [
   ["🌊", "好想去看海，卻還沒找到同行的人。"],
@@ -88,9 +88,9 @@ if (!guestbookConfig?.projectId || !guestbookConfig?.apiKey || !guestbookConfig?
 } else {
   try {
     const [{ initializeApp }, { getAuth, signInAnonymously }, firestore] = await Promise.all([
-      import("https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js"),
-      import("https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js"),
-      import("https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js"),
+      import("https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js"),
+      import("https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js"),
+      import("https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js"),
     ]);
     const app = initializeApp(guestbookConfig, "synctime-web-guestbook");
     const auth = getAuth(app);
