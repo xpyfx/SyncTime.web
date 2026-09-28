@@ -2509,7 +2509,8 @@ body > footer > a:last-child {
   display: block;
   width: 100%;
   height: 107.5%;
-  object-fit: fill;
+  object-fit: cover;
+  object-position: center top;
 }
 .capture-screen.capture-expanded img { height: 119.5%; }
 body:is([data-screen="match"], [data-screen="plan"], [data-screen="bar"], [data-screen="room"], [data-screen="export"], [data-screen="expenses"]) .journey-phone :is(.phone-status, .phone-nav, .phone-homebar) {
