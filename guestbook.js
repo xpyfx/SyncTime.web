@@ -72,7 +72,6 @@ form.addEventListener("submit", async (event) => {
   status.textContent = "正在送出…";
   try {
     await submitMessage(text);
-    canSubmit = false;
     message.value = "";
     count.textContent = "0 / 80";
     status.textContent = "已送出！你的泡泡會留在這裡。";
@@ -87,34 +86,35 @@ if (!guestbookConfig?.projectId || !guestbookConfig?.apiKey || !guestbookConfig?
   status.textContent = "公開留言尚未啟用：需先連接獨立的留言資料庫。";
 } else {
   try {
-    const [{ initializeApp }, { getAuth, signInAnonymously }, firestore] = await Promise.all([
+    const [{ initializeApp }, firestore] = await Promise.all([
       import("https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js"),
-      import("https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js"),
       import("https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js"),
     ]);
     const app = initializeApp(guestbookConfig, "synctime-web-guestbook");
-    const auth = getAuth(app);
     const db = firestore.getFirestore(app, guestbookConfig.databaseId || "(default)");
-    const credential = await signInAnonymously(auth);
-    const ownPost = firestore.doc(db, "bubbles", credential.user.uid);
-    const currentPost = await firestore.getDoc(ownPost);
-    canSubmit = !currentPost.exists();
-    status.textContent = canSubmit ? "每位訪客可以留下一個泡泡。" : "你已經留過一個泡泡，謝謝你！";
     const feed = firestore.query(firestore.collection(db, "bubbles"), firestore.orderBy("createdAt", "desc"));
     firestore.onSnapshot(feed, (snapshot) => {
       renderRows(snapshot.docs.map((doc) => doc.data()).filter((post) => typeof post.message === "string"));
+      canSubmit = true;
+      status.textContent = "不用登入，留下你的旅行心聲。";
+      message.dispatchEvent(new Event("input"));
     }, (error) => {
+      canSubmit = false;
+      submit.disabled = true;
       status.textContent = error.code === "permission-denied"
         ? "請先在 Firestore 發布網站的留言規則。"
-        : "目前無法載入公開留言，請稍後再試。";
+        : error.code === "not-found"
+          ? "請先建立 Firestore 資料庫。"
+          : "目前無法載入公開留言，請稍後再試。";
     });
     submitMessage = async (text) => {
-      await firestore.setDoc(ownPost, { message: text, createdAt: firestore.serverTimestamp() });
+      await firestore.addDoc(firestore.collection(db, "bubbles"), {
+        message: text,
+        createdAt: firestore.serverTimestamp()
+      });
     };
   } catch (error) {
-    status.textContent = ["auth/configuration-not-found", "auth/operation-not-allowed"].includes(error.code)
-      ? "請先在 Firebase Authentication 啟用匿名登入。"
-      : "留言服務目前無法連線，請稍後再試。";
+    status.textContent = "留言服務目前無法連線，請稍後再試。";
     console.error("Guestbook connection error:", error);
   }
 }

@@ -1,11 +1,9 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /bubbles/{visitorId} {
+    match /bubbles/{bubbleId} {
       allow read: if true;
-      allow create: if request.auth != null
-        && request.auth.uid == visitorId
-        && request.resource.data.keys().hasOnly(['message', 'createdAt'])
+      allow create: if request.resource.data.keys().hasOnly(['message', 'createdAt'])
         && request.resource.data.message is string
         && request.resource.data.message.size() >= 2
         && request.resource.data.message.size() <= 80
