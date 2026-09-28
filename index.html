@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=bridge3" />
+    <link rel="stylesheet" href="styles.css?v=bubble1" />
   </head>
   <body data-screen="match">
     <div class="page-grain" aria-hidden="true"></div>
@@ -223,6 +223,36 @@
         </div>
       </section>
 
+      <section class="bubble-wall" id="bubble-wall" aria-labelledby="bubble-wall-title">
+        <div class="bubble-heading">
+          <p class="section-label">The thoughts before a trip</p>
+          <h2 id="bubble-wall-title">你也這樣想過嗎？</h2>
+          <p>一個念頭，也許剛好有人懂。</p>
+        </div>
+        <div class="bubble-rows" id="bubble-rows" aria-label="旅行心聲留言">
+          <div class="bubble-row bubble-row-left" data-bubble-row="0"></div>
+          <div class="bubble-row bubble-row-right" data-bubble-row="1"></div>
+          <div class="bubble-row bubble-row-left bubble-row-fast" data-bubble-row="2"></div>
+        </div>
+        <div class="bubble-action">
+          <p>想說的話，留在這裡。</p>
+          <button class="bubble-button" id="open-bubble" type="button">冒個泡 <span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+
+      <dialog class="bubble-dialog" id="bubble-dialog" aria-labelledby="bubble-dialog-title">
+        <form id="bubble-form">
+          <button class="bubble-close" type="button" id="close-bubble" aria-label="關閉視窗">×</button>
+          <span class="section-label">Leave a little thought</span>
+          <h2 id="bubble-dialog-title">冒個泡</h2>
+          <p>留下一句旅行心聲。送出後會公開展示，且無法自行刪除；請不要填寫個人資料。</p>
+          <label for="bubble-message">你想說什麼？</label>
+          <textarea id="bubble-message" name="message" maxlength="80" minlength="2" rows="4" placeholder="例如：好想去看海，但還沒找到同行的人。" required></textarea>
+          <div class="bubble-form-footer"><span id="bubble-count">0 / 80</span><button type="submit" id="submit-bubble" disabled>送出留言</button></div>
+          <p class="bubble-status" id="bubble-status" role="status" aria-live="polite"></p>
+        </form>
+      </dialog>
+
       <section class="questions" aria-label="每個想出發的時刻">
         <div class="marquee" aria-hidden="true">
           <div><span>想去，但沒有人一起。</span><b>剛到交換城市。</b><span>週末不想待在宿舍。</span><b>想找女生同行。</b></div>
@@ -282,5 +312,6 @@
     </footer>
 
     <script src="script.js?v=bridge3"></script>
+    <script type="module" src="guestbook.js?v=1"></script>
   </body>
 </html>
