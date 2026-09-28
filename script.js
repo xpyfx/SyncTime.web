@@ -73,19 +73,6 @@
 
   trackedSections.forEach((section) => sectionObserver.observe(section));
 
-  const voiceNote = document.querySelector(".voice-note");
-  const voiceButton = voiceNote?.querySelector("button");
-  voiceNote?.querySelectorAll(".wave i").forEach((bar, index) => {
-    bar.style.setProperty("--i", index + 1);
-  });
-
-  voiceButton?.addEventListener("click", () => {
-    const isPlaying = voiceNote.classList.toggle("is-playing");
-    voiceButton.setAttribute("aria-label", isPlaying ? "暫停語音訊息" : "播放語音訊息");
-    const icon = voiceButton.querySelector("span");
-    if (icon) icon.textContent = isPlaying ? "Ⅱ" : "▶";
-  });
-
   if (!reducedMotion && window.matchMedia("(pointer: fine)").matches) {
     document.querySelectorAll(".phone-shell").forEach((phone) => {
       const bezel = phone.querySelector(".phone-bezel");

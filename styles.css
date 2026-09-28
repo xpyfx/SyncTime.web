@@ -865,6 +865,31 @@ body[data-screen="trace"] .sticky-stage::before {
   background: #08080a;
 }
 
+.room-itinerary {
+  display: grid;
+  gap: 11px;
+  margin: 2px 15px 13px;
+  padding: 20px;
+  min-height: 195px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #16252a, #15121d);
+}
+
+.room-itinerary small {
+  color: #75bda6;
+  font-size: 9px;
+}
+
+.room-itinerary strong {
+  font-size: 16px;
+}
+
+.room-itinerary span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 9px;
+}
+
 .chat-head {
   display: grid;
   grid-template-columns: 24px 1fr 24px;
@@ -1148,7 +1173,7 @@ body[data-screen="trace"] .sticky-stage::before {
 
 .phone-nav span {
   color: rgba(255, 255, 255, 0.4);
-  font-size: 12px;
+  font-size: 8px;
 }
 
 .phone-nav .active {
@@ -1292,6 +1317,29 @@ body[data-screen="trace"] .sticky-stage::before {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 24px 70px rgba(0, 0, 0, 0.3);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   backdrop-filter: blur(20px) saturate(140%);
+}
+
+.journey-note {
+  grid-template-columns: 32px 1fr;
+  border-radius: 18px;
+  padding: 14px 18px;
+}
+
+.journey-note > span {
+  grid-row: span 2;
+  font-size: 23px;
+  color: #f3b5c6;
+}
+
+.journey-note p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.journey-note small {
+  grid-column: 2;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 10px;
 }
 
 .voice-note button {
