@@ -84,7 +84,7 @@
       const height = heroPhone.offsetHeight;
       const targetWidth = journeyPhone.offsetWidth;
       const targetHeight = journeyPhone.offsetHeight;
-      const travel = smoothstep(clamp(scroll / Math.max(1, featureSection.offsetTop - window.innerHeight * 0.9)));
+      const travel = smoothstep(clamp(scroll / Math.max(1, heroPhone.offsetTop + heroPhone.offsetHeight * 0.4)));
       const handoff = smoothstep(clamp((window.innerHeight * 0.2 - featureTop) / (window.innerHeight * 0.42)));
       const showing = scroll > 20 && handoff < 1;
 
