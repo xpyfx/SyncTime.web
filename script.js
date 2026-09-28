@@ -1,23 +1,106 @@
-const observer=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.14});
-document.querySelectorAll('.reveal-on-scroll').forEach(el=>observer.observe(el));
+(() => {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const header = document.querySelector(".site-header");
+  const revealItems = document.querySelectorAll(".reveal");
+  const journeySteps = document.querySelectorAll(".journey-step");
+  const phoneScreens = document.querySelectorAll("[data-phone-screen]");
+  const navLinks = document.querySelectorAll(".nav-glass a");
+  const trackedSections = [...navLinks]
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
 
-document.querySelectorAll('a[href^="#"]').forEach(link=>{
-  link.addEventListener('click',e=>{
-    const id=link.getAttribute('href');
-    const target=document.querySelector(id);
-    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
-  })
-});
+  const updateHeader = () => {
+    header?.classList.toggle("is-scrolled", window.scrollY > 28);
+  };
 
-const hero=document.querySelector('.hero');
-const word=document.querySelector('.hero-word');
-const phone=document.querySelector('.hero-phone-wrap');
-window.addEventListener('scroll',()=>{
-  if(!hero||!word||!phone)return;
-  const rect=hero.getBoundingClientRect();
-  if(rect.bottom>0){
-    const y=Math.max(0,-rect.top);
-    word.style.transform=`translateY(${y*.08}px)`;
-    phone.style.marginTop=`${y*.035}px`;
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+
+  if (reducedMotion) {
+    revealItems.forEach((item) => item.classList.add("is-revealed"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
   }
-},{passive:true});
+
+  const showPhoneScreen = (name) => {
+    document.body.dataset.screen = name;
+    phoneScreens.forEach((screen) => {
+      screen.classList.toggle("is-visible", screen.dataset.phoneScreen === name);
+    });
+    journeySteps.forEach((step) => {
+      step.classList.toggle("is-current", step.dataset.screen === name);
+    });
+  };
+
+  const stepObserver = new IntersectionObserver(
+    (entries) => {
+      const activeEntry = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (activeEntry) {
+        showPhoneScreen(activeEntry.target.dataset.screen);
+      }
+    },
+    { threshold: [0.35, 0.55, 0.75], rootMargin: "-15% 0px -15% 0px" }
+  );
+
+  journeySteps.forEach((step) => stepObserver.observe(step));
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    },
+    { threshold: 0.12, rootMargin: "-30% 0px -55% 0px" }
+  );
+
+  trackedSections.forEach((section) => sectionObserver.observe(section));
+
+  const voiceNote = document.querySelector(".voice-note");
+  const voiceButton = voiceNote?.querySelector("button");
+  voiceNote?.querySelectorAll(".wave i").forEach((bar, index) => {
+    bar.style.setProperty("--i", index + 1);
+  });
+
+  voiceButton?.addEventListener("click", () => {
+    const isPlaying = voiceNote.classList.toggle("is-playing");
+    voiceButton.setAttribute("aria-label", isPlaying ? "暫停語音訊息" : "播放語音訊息");
+    const icon = voiceButton.querySelector("span");
+    if (icon) icon.textContent = isPlaying ? "Ⅱ" : "▶";
+  });
+
+  if (!reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+    document.querySelectorAll(".phone-shell").forEach((phone) => {
+      const bezel = phone.querySelector(".phone-bezel");
+      if (!bezel) return;
+
+      phone.addEventListener("pointermove", (event) => {
+        const rect = phone.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        bezel.style.transform = `rotateY(${x * 5}deg) rotateX(${-y * 4}deg)`;
+      });
+
+      phone.addEventListener("pointerleave", () => {
+        bezel.style.transform = "";
+      });
+    });
+  }
+})();
