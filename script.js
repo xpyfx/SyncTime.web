@@ -45,6 +45,9 @@
     journeySteps.forEach((step) => {
       step.classList.toggle("is-current", step.dataset.screen === name);
     });
+    document.querySelectorAll(".phone-nav span").forEach((item) => {
+      item.classList.toggle("active", item.dataset.nav === document.querySelector(`[data-screen="${name}"].journey-step`)?.dataset.category);
+    });
   };
 
   if (reducedMotion) {
@@ -134,6 +137,9 @@
         activeScreen = name;
         document.body.dataset.screen = name;
         journeySteps.forEach((step, index) => step.classList.toggle("is-current", index === current));
+        document.querySelectorAll(".phone-nav span").forEach((item) => {
+          item.classList.toggle("active", item.dataset.nav === journeySteps[current].dataset.category);
+        });
       }
     };
     const scheduleJourney = () => {
