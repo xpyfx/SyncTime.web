@@ -657,7 +657,7 @@ body[data-screen="trace"] .sticky-stage::before {
   width: 314px;
   height: 664px;
   opacity: var(--journey-opacity, 1);
-  transform: translateY(var(--journey-lift, 0px)) scale(var(--journey-scale, 1));
+  transform: translateY(calc(var(--journey-base-offset, 0px) + var(--journey-lift, 0px))) scale(var(--journey-scale, 1));
   will-change: transform, opacity;
 }
 
@@ -2138,6 +2138,37 @@ body > footer > a:last-child {
   .journey-phone {
     width: 270px;
     height: 570px;
+  }
+}
+
+@media (min-width: 761px) {
+  .story-intro .intro-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: min(36vw, 500px);
+    font-size: clamp(42px, 5.5vw, 84px);
+  }
+
+  .story-intro .intro-line span {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .story-intro .intro-line span:last-child {
+    text-align: right;
+  }
+
+  .journey-phone {
+    --journey-base-offset: 6vh;
+  }
+}
+
+@media (min-width: 761px) and (max-height: 900px) {
+  .journey-phone {
+    width: min(314px, 36vh);
+    height: auto;
+    aspect-ratio: 314 / 664;
   }
 }
 

@@ -84,6 +84,7 @@
       const height = heroPhone.offsetHeight;
       const targetWidth = journeyPhone.offsetWidth;
       const targetHeight = journeyPhone.offsetHeight;
+      const targetOffset = window.matchMedia("(min-width: 761px)").matches ? window.innerHeight * 0.06 : 0;
       const travel = smoothstep(clamp(scroll / Math.max(1, heroPhone.offsetTop + heroPhone.offsetHeight * 0.4)));
       const handoff = smoothstep(clamp((window.innerHeight * 0.2 - featureTop) / (window.innerHeight * 0.42)));
       const showing = scroll > 20 && handoff < 1;
@@ -94,7 +95,7 @@
       bridgePhone.style.width = `${width + (targetWidth - width) * travel}px`;
       bridgePhone.style.height = `${height + (targetHeight - height) * travel}px`;
       bridgePhone.style.left = `${heroRect.left + ((window.innerWidth - targetWidth) / 2 - heroRect.left) * travel}px`;
-      bridgePhone.style.top = `${heroRect.top + ((window.innerHeight - targetHeight) / 2 - heroRect.top) * travel}px`;
+      bridgePhone.style.top = `${heroRect.top + ((window.innerHeight - targetHeight) / 2 + targetOffset - heroRect.top) * travel}px`;
       journeyPhone.style.setProperty("--journey-opacity", handoff.toFixed(3));
     };
 
