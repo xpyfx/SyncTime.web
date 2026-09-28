@@ -640,7 +640,8 @@ body[data-screen="trace"] .sticky-stage::before {
 .journey-phone {
   width: 314px;
   height: 664px;
-  transition: transform 800ms var(--ease);
+  transform: translateY(var(--journey-lift, 0px)) scale(var(--journey-scale, 1));
+  will-change: transform;
 }
 
 .journey-phone .phone-bezel {
@@ -659,15 +660,15 @@ body[data-screen="trace"] .sticky-stage::before {
   position: absolute;
   inset: 0;
   padding: 54px 16px 54px;
-  opacity: 0;
-  transform: translateY(18px) scale(0.98);
-  transition: opacity 500ms ease, transform 700ms var(--ease);
+  opacity: var(--screen-opacity, 0);
+  transform: translateY(calc(var(--screen-offset, 1) * 28px)) scale(calc(1 - var(--screen-offset, 1) * 0.035));
+  will-change: opacity, transform;
 }
 
 .app-screen.is-visible {
   z-index: 3;
-  opacity: 1;
-  transform: translateY(0) scale(1);
+  opacity: var(--screen-opacity, 1);
+  transform: translateY(calc(var(--screen-offset, 0) * 28px)) scale(calc(1 - var(--screen-offset, 0) * 0.035));
 }
 
 .app-head {
@@ -2139,6 +2140,20 @@ body > footer > a:last-child {
 
   .reveal {
     opacity: 1;
+    transform: none;
+  }
+
+  .app-screen,
+  .app-screen.is-visible {
+    opacity: 0;
+    transform: none;
+  }
+
+  .app-screen.is-visible {
+    opacity: 1;
+  }
+
+  .journey-phone {
     transform: none;
   }
 }

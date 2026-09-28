@@ -4,6 +4,7 @@
   const revealItems = document.querySelectorAll(".reveal");
   const journeySteps = document.querySelectorAll(".journey-step");
   const phoneScreens = document.querySelectorAll("[data-phone-screen]");
+  const journeyPhone = document.querySelector(".journey-phone");
   const navLinks = document.querySelectorAll(".nav-glass a");
   const trackedSections = [...navLinks]
     .map((link) => document.querySelector(link.getAttribute("href")))
@@ -44,20 +45,66 @@
     });
   };
 
-  const stepObserver = new IntersectionObserver(
-    (entries) => {
-      const activeEntry = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (reducedMotion) {
+    const stepObserver = new IntersectionObserver(
+      (entries) => {
+        const activeEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (activeEntry) showPhoneScreen(activeEntry.target.dataset.screen);
+      },
+      { threshold: [0.35, 0.55, 0.75], rootMargin: "-15% 0px -15% 0px" }
+    );
+    journeySteps.forEach((step) => stepObserver.observe(step));
+  } else if (journeySteps.length && phoneScreens.length) {
+    let frame = 0;
+    let activeScreen = "";
+    const clamp = (value) => Math.max(0, Math.min(1, value));
+    const smoothstep = (value) => value * value * (3 - 2 * value);
 
-      if (activeEntry) {
-        showPhoneScreen(activeEntry.target.dataset.screen);
+    const renderJourney = () => {
+      frame = 0;
+      const viewportCenter = window.scrollY + window.innerHeight * 0.5;
+      const centers = [...journeySteps].map((step) => {
+        const rect = step.getBoundingClientRect();
+        return window.scrollY + rect.top + rect.height * 0.5;
+      });
+      let from = 0;
+      while (from < centers.length - 2 && viewportCenter > centers[from + 1]) from++;
+      const interval = centers[from + 1] - centers[from];
+      const position = interval > 0 ? clamp((viewportCenter - centers[from]) / interval) : 0;
+      const blend = viewportCenter <= centers[0] ? 0
+        : viewportCenter >= centers[centers.length - 1] ? 1
+        : smoothstep(clamp((position - 0.22) / 0.56));
+      const current = viewportCenter >= centers[centers.length - 1]
+        ? centers.length - 1 : blend >= 0.5 ? from + 1 : from;
+
+      phoneScreens.forEach((screen, index) => {
+        const opacity = index === from ? 1 - blend : index === from + 1 ? blend : 0;
+        const offset = index === from ? -blend : index === from + 1 ? 1 - blend : 1;
+        screen.style.setProperty("--screen-opacity", opacity.toFixed(3));
+        screen.style.setProperty("--screen-offset", offset.toFixed(3));
+        screen.style.zIndex = index === current ? "3" : "2";
+      });
+
+      if (journeyPhone) {
+        journeyPhone.style.setProperty("--journey-lift", `${(-7 * Math.sin(Math.PI * blend)).toFixed(2)}px`);
+        journeyPhone.style.setProperty("--journey-scale", (1 - 0.018 * Math.sin(Math.PI * blend)).toFixed(4));
       }
-    },
-    { threshold: [0.35, 0.55, 0.75], rootMargin: "-15% 0px -15% 0px" }
-  );
-
-  journeySteps.forEach((step) => stepObserver.observe(step));
+      const name = journeySteps[current].dataset.screen;
+      if (name !== activeScreen) {
+        activeScreen = name;
+        document.body.dataset.screen = name;
+        journeySteps.forEach((step, index) => step.classList.toggle("is-current", index === current));
+      }
+    };
+    const scheduleJourney = () => {
+      if (!frame) frame = requestAnimationFrame(renderJourney);
+    };
+    window.addEventListener("scroll", scheduleJourney, { passive: true });
+    window.addEventListener("resize", scheduleJourney, { passive: true });
+    scheduleJourney();
+  }
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
