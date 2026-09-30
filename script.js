@@ -7,7 +7,7 @@
   const journeyPhone = document.querySelector(".journey-phone");
   const heroPhone = document.querySelector(".hero-phone");
   const featureSection = document.querySelector(".phone-journey");
-  const navLinks = document.querySelectorAll(".nav-glass a");
+  const navLinks = document.querySelectorAll('.nav-glass a[href^="#"]');
   const trackedSections = [...navLinks]
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
