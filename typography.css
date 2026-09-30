@@ -1,0 +1,14 @@
+/* Normal text uses Computer Modern Sans Serif; Chinese falls back to Noto Sans TC. */
+body { font-weight: 400; }
+button, input, textarea, select { font-family: inherit; }
+body :is(h1, h2, h3):not(.hero-title),
+.art-word, .page-journal-art > span, .team-summary strong {
+  font-weight: 700;
+}
+body :is(p, small, time):not(.hero-title) {
+  font-weight: 400;
+}
+.brand, .hero-title, .page-team-mark > span {
+  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+}
+/* The brand's existing weight and geometry remain part of its design. */

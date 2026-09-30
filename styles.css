@@ -1,4 +1,36 @@
 @font-face {
+  font-family: "Computer Modern Sans Serif";
+  src: url("assets/fonts/computer-modern-sans/cmunss.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Computer Modern Sans Serif";
+  src: url("assets/fonts/computer-modern-sans/cmunsx.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Computer Modern Sans Serif";
+  src: url("assets/fonts/computer-modern-sans/cmunsi.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Computer Modern Sans Serif";
+  src: url("assets/fonts/computer-modern-sans/cmunso.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Noto Sans TC";
   src: url("assets/NotoSansTC-Regular.ttf") format("truetype");
   font-style: normal;
@@ -35,7 +67,7 @@ body {
     radial-gradient(circle at 50% 8%, rgba(3, 80, 150, 0.22), transparent 24rem),
     var(--black);
   color: var(--ink);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   letter-spacing: 0;
 }
 
@@ -122,7 +154,7 @@ img {
   padding: 9px 14px;
   border-radius: 999px;
   color: rgba(255, 255, 255, 0.56);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 11px;
   font-weight: 600;
   line-height: 1;
@@ -213,7 +245,7 @@ img {
   left: 50%;
   margin: 0;
   color: rgba(255, 255, 255, 0.54);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -232,7 +264,7 @@ img {
   background: linear-gradient(180deg, #f7fbfe 0%, #B6CADA 48%, #035096 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: clamp(108px, 18.1vw, 288px);
   font-weight: 800;
   line-height: 0.74;
@@ -272,7 +304,7 @@ img {
 }
 
 .hero-index strong {
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 13px;
 }
 
@@ -366,7 +398,7 @@ img {
   display: flex;
   justify-content: space-between;
   padding: 0 25px;
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 8px;
   font-weight: 700;
 }
@@ -431,7 +463,7 @@ img {
 
 .eyebrow {
   color: rgba(255, 255, 255, 0.58);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.13em;
@@ -458,7 +490,7 @@ img {
   border: 2px solid #0b2c49;
   border-radius: 50%;
   color: #fff;
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 9px;
   font-weight: 800;
 }
@@ -482,7 +514,7 @@ img {
 .avatar-line small {
   margin-left: 14px;
   color: rgba(255, 255, 255, 0.62);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 8px;
 }
 
@@ -515,7 +547,7 @@ img {
   align-items: center;
   gap: 14px;
   color: rgba(255, 255, 255, 0.5);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -560,7 +592,7 @@ img {
 .section-label {
   margin: 0;
   color: rgba(255, 255, 255, 0.48);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.13em;
@@ -726,7 +758,7 @@ body[data-screen="trace"] .sticky-stage::before {
 
 .destination-card h3 {
   margin: 40px 0 0;
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 38px;
   line-height: 1;
 }
@@ -801,7 +833,7 @@ body[data-screen="trace"] .sticky-stage::before {
 
 .trip-card small {
   color: rgba(255, 255, 255, 0.4);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 7px;
 }
 
@@ -877,7 +909,7 @@ body[data-screen="trace"] .sticky-stage::before {
   gap: 18px;
   margin-top: 12px;
   color: rgba(255, 255, 255, 0.58);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 8px;
 }
 
@@ -1103,7 +1135,7 @@ body[data-screen="trace"] .sticky-stage::before {
 
 .passport-title span {
   color: rgba(255, 255, 255, 0.4);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 7px;
   letter-spacing: 0.1em;
 }
@@ -1230,7 +1262,7 @@ body[data-screen="trace"] .sticky-stage::before {
   display: block;
   margin-bottom: 18px;
   color: var(--sky);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.13em;
@@ -1419,7 +1451,7 @@ body[data-screen="trace"] .sticky-stage::before {
 
 .voice-note time {
   color: rgba(255, 255, 255, 0.5);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 8px;
 }
 
@@ -1743,7 +1775,7 @@ body[data-screen="trace"] .sticky-stage::before {
 .mini-screen > span {
   margin-bottom: 40px;
   color: rgba(255, 255, 255, 0.52);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 8px;
   letter-spacing: 0.16em;
 }
@@ -1767,7 +1799,7 @@ body[data-screen="trace"] .sticky-stage::before {
     linear-gradient(145deg, #19527f, #123451);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
   color: #fff;
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 800;
@@ -1788,7 +1820,7 @@ body[data-screen="trace"] .sticky-stage::before {
 
 .mini-screen p {
   color: rgba(255, 255, 255, 0.44);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 9px;
 }
 
@@ -1862,7 +1894,7 @@ body[data-screen="trace"] .sticky-stage::before {
   background: rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(18px) saturate(150%);
   backdrop-filter: blur(18px) saturate(150%);
-  font-family: "Fredoka", "Noto Sans TC", sans-serif;
+  font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: 11px;
   font-weight: 700;
   transition: background 250ms ease, color 250ms ease, transform 250ms var(--ease);
@@ -2440,7 +2472,7 @@ body > footer > a:last-child {
 .ui-hint { margin-top: 12px; color: #94adc0; font-size: 9px; line-height: 1.7; }
 .ui-balance { display: grid; gap: 8px; padding: 22px; border-radius: 16px; background: linear-gradient(135deg, #035096, #0b3356); }
 .ui-balance small, .ui-balance span { color: #c7deee; font-size: 9px; }
-.ui-balance strong { font-family: "Fredoka", sans-serif; font-size: 31px; }
+.ui-balance strong { font-family: "Computer Modern Sans Serif", sans-serif; font-size: 31px; }
 .ui-expense { margin: 8px 0; }
 .ui-expense > span { font-size: 18px; }
 .ui-split { display: grid; gap: 8px; margin-top: 18px; padding: 15px; border: 1px solid #7ba5c15c; border-radius: 12px; }
@@ -2456,14 +2488,14 @@ body > footer > a:last-child {
 .ui-stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 15px 0; }
 .ui-stat-grid > div { display: grid; gap: 5px; padding: 14px; border: 1px solid #ffffff1f; border-radius: 12px; background: #ffffff0c; }
 .ui-stat-grid small, .ui-stat-grid span { color: #b6cada; font-size: 8px; }
-.ui-stat-grid strong { font-family: "Fredoka", sans-serif; font-size: 28px; }
+.ui-stat-grid strong { font-family: "Computer Modern Sans Serif", sans-serif; font-size: 28px; }
 .ui-chart { padding: 17px 14px; border: 1px solid #ffffff20; border-radius: 13px; background: #ffffff0b; }
 .ui-chart small { font-size: 10px; }
 .ui-bars { display: flex; align-items: end; justify-content: space-around; gap: 9px; height: 135px; margin-top: 15px; border-bottom: 1px solid #ffffff30; }
 .ui-bars i { flex: 1; max-width: 24px; border-radius: 5px 5px 0 0; background: linear-gradient(#b6cada, #035096); }
 .ui-chart-labels { display: flex; justify-content: space-between; padding-top: 9px; color: #9bbbd0; font-size: 7px; }
 .ui-profile-top { display: grid; justify-items: center; gap: 8px; margin: 18px 0 23px; text-align: center; }
-.ui-profile-avatar { display: grid; place-items: center; width: 75px; height: 75px; border: 2px solid #90bdd8; border-radius: 50%; background: linear-gradient(145deg, #197abc, #103b62); font-family: "Fredoka", sans-serif; font-size: 32px; }
+.ui-profile-avatar { display: grid; place-items: center; width: 75px; height: 75px; border: 2px solid #90bdd8; border-radius: 50%; background: linear-gradient(145deg, #197abc, #103b62); font-family: "Computer Modern Sans Serif", sans-serif; font-size: 32px; }
 .ui-profile-top strong { font-size: 17px; }
 .ui-profile-top small { color: #a9c4d8; font-size: 9px; }
 .ui-profile-menu { justify-content: space-between; margin: 7px 0; font-size: 10px; }
@@ -2477,7 +2509,7 @@ body > footer > a:last-child {
 .ui-stamp-grid small { color: #9fc9e5; font-size: 8px; }
 .ui-stamp-grid .locked { opacity: .45; }
 .ui-rating-top { display: flex; align-items: center; gap: 18px; padding: 17px; border-radius: 15px; background: #ffffff0d; }
-.ui-rating-top > strong { font-family: "Fredoka", sans-serif; font-size: 42px; }
+.ui-rating-top > strong { font-family: "Computer Modern Sans Serif", sans-serif; font-size: 42px; }
 .ui-rating-top > span { display: grid; gap: 6px; color: #f6d588; font-size: 15px; }
 .ui-rating-top small { color: #aac7da; font-size: 8px; }
 .ui-review { margin-top: 10px; padding: 13px; border: 1px solid #ffffff20; border-radius: 12px; background: #ffffff0b; }
@@ -2515,4 +2547,9 @@ body > footer > a:last-child {
 .capture-screen.capture-expanded img { height: 119.5%; }
 body:is([data-screen="match"], [data-screen="plan"], [data-screen="bar"], [data-screen="room"], [data-screen="export"], [data-screen="expenses"]) .journey-phone :is(.phone-status, .phone-nav, .phone-homebar) {
   opacity: 0;
+}
+
+/* Keep the designed SyncTime wordmark in Fredoka. */
+.brand, .hero-title, .page-team-mark > span {
+  font-family: "Fredoka", "Noto Sans TC", sans-serif;
 }
