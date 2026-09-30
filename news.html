@@ -11,9 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css?v=captures6-ratio" />
-    <link rel="stylesheet" href="pages.css?v=pages1" />
+    <link rel="stylesheet" href="pages.css?v=pages2" />
   </head>
-  <body class="inner-page">
+  <body class="inner-page" data-page="news">
     <a class="page-skip" href="#page-content">跳至主要內容</a>
     <div class="page-grain" aria-hidden="true"></div>
     <header class="site-header" aria-label="主要導覽">
@@ -41,7 +41,7 @@
         <div class="page-hero-bottom"><span>SyncTime / What's new</span><a href="#page-details">往下探索 <span aria-hidden="true">↓</span></a></div>
       </div>
       <div class="page-content-wrap" id="page-details">
-        <div class="page-section-heading"><span class="page-number">01</span><div><p class="section-label">Latest updates</p><h2>共時的新動態</h2><p>產品更新、活動公告與專案近況，將在這裡陸續公開。</p></div></div><div class="page-empty"><span class="page-empty-symbol" aria-hidden="true">✦</span><div><p class="section-label">Stay tuned</p><h3>新消息正在路上。</h3><p>目前尚未發布消息。準備好第一則更新後，我們會在這裡與你分享。</p></div><span class="page-status">準備中</span></div><div class="page-note"><span>想先認識共時？</span><p>從徵旅伴、共同行程到旅行軌跡，看看 SyncTime 如何串起每個想出發的時刻。</p><a class="page-text-link" href="index.html#story">閱讀我們的故事 ↗</a></div>
+        <div class="page-section-heading motion-item"><span class="page-number">01</span><div><p class="section-label">Latest from SyncTime</p><h2>每次更新，都值得被看見。</h2><p>產品更新、活動公告與共時日常，從這裡開始。</p></div></div><div class="content-filters motion-item" aria-label="消息分類"><button type="button" data-filter="全部" data-filter-target="news" aria-pressed="true" class="is-selected">全部</button><button type="button" data-filter="產品更新" data-filter-target="news" aria-pressed="false">產品更新</button><button type="button" data-filter="活動公告" data-filter-target="news" aria-pressed="false">活動公告</button><button type="button" data-filter="共時日常" data-filter-target="news" aria-pressed="false">共時日常</button></div><div class="news-grid"><article class="news-card motion-item" data-category="產品更新" data-filter-item="news"><button class="news-card-button" type="button" data-detail="journey" data-detail-kind="news" aria-label="閱讀 Demo 消息：把想去的地方，排成一起出發的旅程。"><div class="news-art news-art-0" aria-hidden="true"><span class="art-orbit"></span><span class="art-word">Journey.</span><span class="art-coordinate">SYNC / 01</span></div><div class="news-card-content"><div class="card-meta"><span>產品更新</span><span class="demo-label">DEMO</span></div><h3>把想去的地方，排成一起出發的旅程。</h3><p>從找旅伴、共同行程到群組討論，帶你認識共時如何串起旅行前的每個念頭。</p><span class="card-cta">閱讀消息 <i aria-hidden="true">↗</i></span></div></button></article><article class="news-card motion-item" data-category="活動公告" data-filter-item="news"><button class="news-card-button" type="button" data-detail="meet" data-detail-kind="news" aria-label="閱讀 Demo 消息：下一次見面，讓我們聊聊你的旅行故事。"><div class="news-art news-art-1" aria-hidden="true"><span class="art-orbit"></span><span class="art-word">Together.</span><span class="art-coordinate">SYNC / 02</span></div><div class="news-card-content"><div class="card-meta"><span>活動公告</span><span class="demo-label">DEMO</span></div><h3>下一次見面，讓我們聊聊你的旅行故事。</h3><p>現場認識 SyncTime，看看行程規劃與旅行軌跡如何留下同行的時間。</p><span class="card-cta">閱讀消息 <i aria-hidden="true">↗</i></span></div></button></article><article class="news-card motion-item" data-category="共時日常" data-filter-item="news"><button class="news-card-button" type="button" data-detail="memory" data-detail-kind="news" aria-label="閱讀 Demo 消息：走過的地方，最後都成了故事。"><div class="news-art news-art-2" aria-hidden="true"><span class="art-orbit"></span><span class="art-word">Remember.</span><span class="art-coordinate">SYNC / 03</span></div><div class="news-card-content"><div class="card-meta"><span>共時日常</span><span class="demo-label">DEMO</span></div><h3>走過的地方，最後都成了故事。</h3><p>從一段旅行軌跡，到一枚旅遊印章，讓每次出發都有回望的方式。</p><span class="card-cta">閱讀消息 <i aria-hidden="true">↗</i></span></div></button></article></div><p class="demo-note motion-item">以上為版型示範消息，非正式公告；點擊卡片可預覽文章。</p>
         <aside class="page-return"><div><p class="section-label">Every journey starts somewhere</p><h2>下一段故事，從共時開始。</h2></div><a class="page-link" href="index.html#features">探索 SyncTime 功能 <span aria-hidden="true">↗</span></a></aside>
       </div>
     </main>
@@ -51,6 +51,8 @@
       <nav aria-label="頁尾導覽"><a href="news.html">最新消息</a><a href="exhibitions.html">線下展覽</a><a href="partners.html">合作好捧油</a><a href="team.html">共時團隊</a></nav>
       <a href="https://synctime.win" target="_blank" rel="noopener noreferrer">查看官網 ↗</a>
     </footer>
-    <script src="pages.js?v=pages1"></script>
+    <dialog class="content-dialog" aria-labelledby="detail-title"><div class="dialog-shell"><button class="dialog-close" type="button" aria-label="關閉視窗">×</button><div class="dialog-detail"><div class="card-meta"><span id="detail-category"></span><span class="demo-label">DEMO</span></div><h2 id="detail-title"></h2><div id="detail-body"></div><p class="demo-note">此內容為版位示範，正式資訊將由共時團隊更新。</p></div></div></dialog>
+    <script src="page-data.js?v=pages2"></script>
+    <script src="pages.js?v=pages2"></script>
   </body>
 </html>
