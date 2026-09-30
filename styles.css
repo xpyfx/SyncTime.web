@@ -2516,3 +2516,56 @@ body > footer > a:last-child {
 body:is([data-screen="match"], [data-screen="plan"], [data-screen="bar"], [data-screen="room"], [data-screen="export"], [data-screen="expenses"]) .journey-phone :is(.phone-status, .phone-nav, .phone-homebar) {
   opacity: 0;
 }
+/* =========================================================
+   新增：中文導覽列只負責定位，不覆蓋原本 Navbar 設計
+   ========================================================= */
+
+.custom-top-nav {
+  position: fixed;
+
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: auto;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 28px;
+
+  background: transparent;
+  border: none;
+
+  box-shadow: none;
+
+  z-index: 10000;
+
+  pointer-events: auto;
+}
+
+.custom-top-nav a {
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transform: none;
+}
+
+.custom-top-nav a:hover {
+  color: #ffffff;
+
+  background: transparent;
+
+  transform: none;
+}
