@@ -2517,96 +2517,52 @@ body:is([data-screen="match"], [data-screen="plan"], [data-screen="bar"], [data-
   opacity: 0;
 }
 /* =========================================================
-   新增：上方導覽列
+   新增：讓中文 NAVBAR 位於上方中央
    ========================================================= */
 
 .custom-top-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 58px;
+  width: auto;
+  height: 58px;
 
-  z-index: 9999;
+  padding: 0 10px;
+  gap: 6px;
 
-  background: rgba(245, 248, 246, 0.96);
-  border-bottom: 1px solid rgba(2, 15, 30, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
 
-  box-sizing: border-box;
+  background: rgba(10, 31, 51, 0.82);
 
-  font-family: inherit;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 8px 30px rgba(0, 0, 0, 0.18);
 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .custom-top-nav a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  height: 40px;
+  padding: 0 18px;
 
-  color: #59645e;
-  text-decoration: none;
+  border-radius: 999px;
 
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1;
+  color: rgba(255, 255, 255, 0.72);
 
-  white-space: nowrap;
-
-  transition:
-    color 0.25s ease,
-    opacity 0.25s ease,
-    transform 0.25s ease;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .custom-top-nav a:hover {
-  color: #020f1e;
-  opacity: 0.9;
-  transform: translateY(-1px);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+
+  transform: none;
 }
 
 .custom-top-nav a:active {
-  transform: translateY(0);
-}
-
-@media (max-width: 768px) {
-  .custom-top-nav {
-    height: 62px;
-    gap: 22px;
-    padding: 0 18px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    justify-content: flex-start;
-
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .custom-top-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .custom-top-nav a {
-    flex: 0 0 auto;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .custom-top-nav {
-    gap: 18px;
-    padding: 0 14px;
-  }
-
-  .custom-top-nav a {
-    font-size: 13px;
-  }
+  transform: none;
 }
