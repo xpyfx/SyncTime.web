@@ -93,7 +93,10 @@
     });
     document.querySelectorAll('[data-filter-item="' + target + '"]').forEach(item => {
       item.hidden = category !== "全部" && item.dataset.category !== category;
-      if (!item.hidden) item.classList.add("is-in-view");
+      if (!item.hidden) {
+        item.classList.add("is-in-view");
+        if (!reducedMotion && item.animate) item.animate([{ opacity: .35, transform: "translateY(10px)" }, { opacity: 1, transform: "none" }], { duration: 380, easing: "cubic-bezier(.22,1,.36,1)" });
+      }
     });
     updateHeader();
   }));
