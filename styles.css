@@ -266,8 +266,8 @@ img {
   background-clip: text;
   font-family: "Computer Modern Sans Serif", "Noto Sans TC", sans-serif;
   font-size: clamp(108px, 18.1vw, 288px);
-  font-weight: 800;
-  line-height: 0.74;
+  font-weight: 700;
+  line-height: 1;
   letter-spacing: 0;
   text-align: center;
   white-space: nowrap;
