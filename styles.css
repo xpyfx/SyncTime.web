@@ -2550,6 +2550,6 @@ body:is([data-screen="match"], [data-screen="plan"], [data-screen="bar"], [data-
 }
 
 /* Keep the designed SyncTime wordmark in Fredoka. */
-.brand, .hero-title, .page-team-mark > span {
+.brand, .page-team-mark > span {
   font-family: "Fredoka", "Noto Sans TC", sans-serif;
 }
