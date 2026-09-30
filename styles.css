@@ -2516,3 +2516,97 @@ body > footer > a:last-child {
 body:is([data-screen="match"], [data-screen="plan"], [data-screen="bar"], [data-screen="room"], [data-screen="export"], [data-screen="expenses"]) .journey-phone :is(.phone-status, .phone-nav, .phone-homebar) {
   opacity: 0;
 }
+/* =========================================================
+   新增：上方導覽列
+   ========================================================= */
+
+.custom-top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 58px;
+
+  z-index: 9999;
+
+  background: rgba(245, 248, 246, 0.96);
+  border-bottom: 1px solid rgba(2, 15, 30, 0.08);
+
+  box-sizing: border-box;
+
+  font-family: inherit;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.custom-top-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #59645e;
+  text-decoration: none;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.custom-top-nav a:hover {
+  color: #020f1e;
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.custom-top-nav a:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .custom-top-nav {
+    height: 62px;
+    gap: 22px;
+    padding: 0 18px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    justify-content: flex-start;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .custom-top-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-top-nav a {
+    flex: 0 0 auto;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-top-nav {
+    gap: 18px;
+    padding: 0 14px;
+  }
+
+  .custom-top-nav a {
+    font-size: 13px;
+  }
+}
